@@ -1,14 +1,18 @@
 import "./App.css";
 import Button from "./components/Button.jsx";
+import Counter from "./components/Counter.jsx";
 import logoFreecodecamp from "./images/freecodecamp-logo.png";
+import { useState } from "react";
 
 function App() {
+  const [numClicks, setNumClicks] = useState(0);
+
   const click = () => {
-    console.log("Click !");
+    setNumClicks(numClicks + 1);
   };
 
   const reiniciar = () => {
-    console.log("Reiniciar !");
+    setNumClicks(0);
   };
 
   return (
@@ -21,6 +25,7 @@ function App() {
         />
       </div>
       <div className="counter-container">
+        <Counter count={numClicks} />
         <Button
           texto="Incrementar"
           esBotonDeClick={true}
